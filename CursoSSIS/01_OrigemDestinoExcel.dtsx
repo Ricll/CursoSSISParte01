@@ -1,0 +1,458 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/22/2021 10:02:44 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-3QC1KE7P"
+  DTS:CreatorName="LAPTOP-3QC1KE7P\Rick"
+  DTS:DTSID="{97027831-8FAC-4942-9E09-B74784370B10}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.167"
+  DTS:LocaleID="1046"
+  DTS:ObjectName="OrigemDestinoExcel"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{7ACF0567-2AAC-41F5-9256-7D0ECC0A2B77}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[OrigemExcel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{9B8E7675-9C54-4B7E-BEB5-4F2CE5DA5034}"
+      DTS:ObjectName="OrigemExcel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\SSIS_ETL\Origem\arquivos_excel\CNE_082019.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SaidaExcel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{A1A7B033-9FC2-4D1E-A4D9-3C3B287A3CF9}"
+      DTS:ObjectName="SaidaExcel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\SSIS_ETL\Destino\arquivos_excel\CNE_Out.xls;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\OrigemDestinoExcel"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarefa Fluxo de Dados"
+      DTS:DTSID="{DF969A98-9328-4C70-9DF4-35526A6899C8}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="OrigemDestinoExcel"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\OrigemDestinoExcel\Destino do Excel"
+              componentClassID="Microsoft.ExcelDestination"
+              contactInfo="Destino do Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;0"
+              description="Destino do Excel"
+              name="Destino do Excel"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset">CNE_Out</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se os valores fornecidos para colunas de identidade serão copiados no destino. Se false, os valores para colunas de identidade serão gerados automaticamente no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se as colunas que contêm null terão null inserido no destino. Se false, as colunas que contêm null terão seus valores padrão inseridos no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica as opções a serem usadas com o carregamento rápido. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica quando confirmações são emitidas durante a inserção de dados. Um valor de 0 especifica que uma confirmação será emitida ao final da inserção de dados. Aplicável somente se o carregamento rápido estiver ativado."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\OrigemDestinoExcel\Destino do Excel.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SaidaExcel]"
+                  connectionManagerRefId="Package.ConnectionManagers[SaidaExcel]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\OrigemDestinoExcel\Destino do Excel.Inputs[Entrada de Destino do Excel]"
+                  errorOrTruncationOperation="Inserir"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de Destino do Excel">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\OrigemDestinoExcel\Destino do Excel.Inputs[Entrada de Destino do Excel].Columns[COD_SECAO]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="COD_SECAO"
+                      externalMetadataColumnId="Package\OrigemDestinoExcel\Destino do Excel.Inputs[Entrada de Destino do Excel].ExternalColumns[COD_SECAO]"
+                      lineageId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Origem do Excel].Columns[COD_SECAO]" />
+                    <inputColumn
+                      refId="Package\OrigemDestinoExcel\Destino do Excel.Inputs[Entrada de Destino do Excel].Columns[DESC_SECAO]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DESC_SECAO"
+                      externalMetadataColumnId="Package\OrigemDestinoExcel\Destino do Excel.Inputs[Entrada de Destino do Excel].ExternalColumns[DESC_SECAO]"
+                      lineageId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Origem do Excel].Columns[DESC_SECAO]" />
+                    <inputColumn
+                      refId="Package\OrigemDestinoExcel\Destino do Excel.Inputs[Entrada de Destino do Excel].Columns[COD_SUBCLASSE]"
+                      cachedDataType="r8"
+                      cachedName="COD_SUBCLASSE"
+                      externalMetadataColumnId="Package\OrigemDestinoExcel\Destino do Excel.Inputs[Entrada de Destino do Excel].ExternalColumns[COD_SUBCLASSE]"
+                      lineageId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Origem do Excel].Columns[COD_SUBCLASSE]" />
+                    <inputColumn
+                      refId="Package\OrigemDestinoExcel\Destino do Excel.Inputs[Entrada de Destino do Excel].Columns[DESC_SUBCLASSE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DESC_SUBCLASSE"
+                      externalMetadataColumnId="Package\OrigemDestinoExcel\Destino do Excel.Inputs[Entrada de Destino do Excel].ExternalColumns[DESC_SUBCLASSE]"
+                      lineageId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Origem do Excel].Columns[DESC_SUBCLASSE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\OrigemDestinoExcel\Destino do Excel.Inputs[Entrada de Destino do Excel].ExternalColumns[COD_SECAO]"
+                      dataType="wstr"
+                      length="255"
+                      name="COD_SECAO" />
+                    <externalMetadataColumn
+                      refId="Package\OrigemDestinoExcel\Destino do Excel.Inputs[Entrada de Destino do Excel].ExternalColumns[DESC_SECAO]"
+                      dataType="wstr"
+                      length="255"
+                      name="DESC_SECAO" />
+                    <externalMetadataColumn
+                      refId="Package\OrigemDestinoExcel\Destino do Excel.Inputs[Entrada de Destino do Excel].ExternalColumns[COD_SUBCLASSE]"
+                      dataType="wstr"
+                      length="255"
+                      name="COD_SUBCLASSE" />
+                    <externalMetadataColumn
+                      refId="Package\OrigemDestinoExcel\Destino do Excel.Inputs[Entrada de Destino do Excel].ExternalColumns[DESC_SUBCLASSE]"
+                      dataType="wstr"
+                      length="255"
+                      name="DESC_SUBCLASSE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\OrigemDestinoExcel\Destino do Excel.Outputs[Saída de Erro de Destino do Excel]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Destino do Excel"
+                  synchronousInputId="Package\OrigemDestinoExcel\Destino do Excel.Inputs[Entrada de Destino do Excel]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\OrigemDestinoExcel\Destino do Excel.Outputs[Saída de Erro de Destino do Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\OrigemDestinoExcel\Destino do Excel.Outputs[Saída de Erro de Destino do Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\OrigemDestinoExcel\Destino do Excel.Outputs[Saída de Erro de Destino do Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\OrigemDestinoExcel\Destino do Excel.Outputs[Saída de Erro de Destino do Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\OrigemDestinoExcel\Origem do Excel"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Origem do Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;1"
+              description="Origem do Excel"
+              name="Origem do Excel"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset">'201908_CNE$'</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="A variável que contém o comando SQL a ser executado."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="O mapeamento de parâmetros no comando SQL para variáveis."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\OrigemDestinoExcel\Origem do Excel.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[OrigemExcel]"
+                  connectionManagerRefId="Package.ConnectionManagers[OrigemExcel]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Origem do Excel]"
+                  name="Saída de Origem do Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Origem do Excel].Columns[COD_SECAO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Origem do Excel].ExternalColumns[COD_SECAO]"
+                      length="255"
+                      lineageId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Origem do Excel].Columns[COD_SECAO]"
+                      name="COD_SECAO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Origem do Excel].Columns[DESC_SECAO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Origem do Excel].ExternalColumns[DESC_SECAO]"
+                      length="255"
+                      lineageId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Origem do Excel].Columns[DESC_SECAO]"
+                      name="DESC_SECAO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Origem do Excel].Columns[COD_SUBCLASSE]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Origem do Excel].ExternalColumns[COD_SUBCLASSE]"
+                      lineageId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Origem do Excel].Columns[COD_SUBCLASSE]"
+                      name="COD_SUBCLASSE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Origem do Excel].Columns[DESC_SUBCLASSE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Origem do Excel].ExternalColumns[DESC_SUBCLASSE]"
+                      length="255"
+                      lineageId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Origem do Excel].Columns[DESC_SUBCLASSE]"
+                      name="DESC_SUBCLASSE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Origem do Excel].ExternalColumns[COD_SECAO]"
+                      dataType="wstr"
+                      length="255"
+                      name="COD_SECAO" />
+                    <externalMetadataColumn
+                      refId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Origem do Excel].ExternalColumns[DESC_SECAO]"
+                      dataType="wstr"
+                      length="255"
+                      name="DESC_SECAO" />
+                    <externalMetadataColumn
+                      refId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Origem do Excel].ExternalColumns[COD_SUBCLASSE]"
+                      dataType="r8"
+                      name="COD_SUBCLASSE" />
+                    <externalMetadataColumn
+                      refId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Origem do Excel].ExternalColumns[DESC_SUBCLASSE]"
+                      dataType="wstr"
+                      length="255"
+                      name="DESC_SUBCLASSE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Erro de Origem do Excel]"
+                  isErrorOut="true"
+                  name="Saída de Erro de Origem do Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Erro de Origem do Excel].Columns[COD_SECAO]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Erro de Origem do Excel].Columns[COD_SECAO]"
+                      name="COD_SECAO" />
+                    <outputColumn
+                      refId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Erro de Origem do Excel].Columns[DESC_SECAO]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Erro de Origem do Excel].Columns[DESC_SECAO]"
+                      name="DESC_SECAO" />
+                    <outputColumn
+                      refId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Erro de Origem do Excel].Columns[COD_SUBCLASSE]"
+                      dataType="r8"
+                      lineageId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Erro de Origem do Excel].Columns[COD_SUBCLASSE]"
+                      name="COD_SUBCLASSE" />
+                    <outputColumn
+                      refId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Erro de Origem do Excel].Columns[DESC_SUBCLASSE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Erro de Origem do Excel].Columns[DESC_SUBCLASSE]"
+                      name="DESC_SUBCLASSE" />
+                    <outputColumn
+                      refId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Erro de Origem do Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Erro de Origem do Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Erro de Origem do Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Erro de Origem do Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\OrigemDestinoExcel.Paths[Saída de Origem do Excel]"
+              endId="Package\OrigemDestinoExcel\Destino do Excel.Inputs[Entrada de Destino do Excel]"
+              name="Saída de Origem do Excel"
+              startId="Package\OrigemDestinoExcel\Origem do Excel.Outputs[Saída de Origem do Excel]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="173.333333333334,42.6666666666667"
+          Id="Package\OrigemDestinoExcel"
+          TopLeft="174.37499740161,71.4999987214804" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\OrigemDestinoExcel">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,42.6666666666667"
+          Id="Package\OrigemDestinoExcel\Origem do Excel"
+          TopLeft="114.37499829568,22.0999996048212" />
+        <NodeLayout
+          Size="157.333333333334,42.6666666666667"
+          Id="Package\OrigemDestinoExcel\Destino do Excel"
+          TopLeft="113.749998304993,233.349995827377" />
+        <EdgeLayout
+          Id="Package\OrigemDestinoExcel.Paths[Saída de Origem do Excel]"
+          TopLeft="192.39583163367,64.7666662714879">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,168.583329555889"
+              Start="0,0"
+              End="0,161.083329555889">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,161.083329555889" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\OrigemDestinoExcel\Origem do Excel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\OrigemDestinoExcel\Destino do Excel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

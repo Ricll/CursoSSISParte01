@@ -1,0 +1,379 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/24/2021 4:24:19 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-3QC1KE7P"
+  DTS:CreatorName="LAPTOP-3QC1KE7P\Rick"
+  DTS:DTSID="{610582B3-C5C5-4271-B407-0B9EF7472C88}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.167"
+  DTS:LocaleID="1046"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{31888B45-833D-4322-94CD-6ABDDF962005}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-3QC1KE7P\MSSQLSERVER2.EXEMPLO1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{0CFC5F68-1A85-4D88-8107-0A090FAABF41}"
+      DTS:ObjectName="LAPTOP-3QC1KE7P\MSSQLSERVER2.EXEMPLO1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LAPTOP-3QC1KE7P\MSSQLSERVER2;Initial Catalog=EXEMPLO;Integrated Security=True;Application Name=SSIS-Package1-{0CFC5F68-1A85-4D88-8107-0A090FAABF41}LAPTOP-3QC1KE7P\MSSQLSERVER2.EXEMPLO1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\OrigemDestinoADO-NET"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarefa Fluxo de Dados"
+      DTS:DTSID="{25BD2407-5C03-4B9E-B012-12331277EC70}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="OrigemDestinoADO-NET"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\OrigemDestinoADO-NET\ADO NET Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO NET Destination"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"ALUNOS03"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\OrigemDestinoADO-NET\ADO NET Destination.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-3QC1KE7P\MSSQLSERVER2.EXEMPLO1]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-3QC1KE7P\MSSQLSERVER2.EXEMPLO1]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\OrigemDestinoADO-NET\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\OrigemDestinoADO-NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\OrigemDestinoADO-NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\OrigemDestinoADO-NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[NOME]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOME"
+                      externalMetadataColumnId="Package\OrigemDestinoADO-NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[NOME]"
+                      lineageId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[NOME]" />
+                    <inputColumn
+                      refId="Package\OrigemDestinoADO-NET\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[DATA]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DATA"
+                      externalMetadataColumnId="Package\OrigemDestinoADO-NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[DATA]"
+                      lineageId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[DATA]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\OrigemDestinoADO-NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\OrigemDestinoADO-NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[NOME]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOME" />
+                    <externalMetadataColumn
+                      refId="Package\OrigemDestinoADO-NET\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[DATA]"
+                      dataType="dbTimeStamp"
+                      name="DATA" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\OrigemDestinoADO-NET\ADO NET Destination.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\OrigemDestinoADO-NET\ADO NET Destination.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\OrigemDestinoADO-NET\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\OrigemDestinoADO-NET\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\OrigemDestinoADO-NET\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\OrigemDestinoADO-NET\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\OrigemDestinoADO-NET\ADO NET Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="ADO NET Source"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT ID, NOME, GETDATE() as DATA FROM ALUNOS02</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\OrigemDestinoADO-NET\ADO NET Source.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-3QC1KE7P\MSSQLSERVER2.EXEMPLO1]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-3QC1KE7P\MSSQLSERVER2.EXEMPLO1]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ID]"
+                      lineageId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[NOME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[NOME]"
+                      length="255"
+                      lineageId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[NOME]"
+                      name="NOME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[DATA]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[DATA]"
+                      lineageId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Output].Columns[DATA]"
+                      name="DATA"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[NOME]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOME" />
+                    <externalMetadataColumn
+                      refId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[DATA]"
+                      dataType="dbTimeStamp"
+                      name="DATA" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[NOME]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[NOME]"
+                      name="NOME" />
+                    <outputColumn
+                      refId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[DATA]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[DATA]"
+                      name="DATA" />
+                    <outputColumn
+                      refId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\OrigemDestinoADO-NET.Paths[ADO NET Source Output]"
+              endId="Package\OrigemDestinoADO-NET\ADO NET Destination.Inputs[ADO NET Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\OrigemDestinoADO-NET\ADO NET Source.Outputs[ADO NET Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="193.333333333334,42.6666666666667"
+          Id="Package\OrigemDestinoADO-NET"
+          TopLeft="164.374997550622,75.399998651743" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\OrigemDestinoADO-NET">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="158.666666666667,42.6666666666667"
+          Id="Package\OrigemDestinoADO-NET\ADO NET Source"
+          TopLeft="168.749997485429,11.6999997907877" />
+        <NodeLayout
+          Size="180,42.6666666666667"
+          Id="Package\OrigemDestinoADO-NET\ADO NET Destination"
+          TopLeft="160.624997606501,182.649996733964" />
+        <EdgeLayout
+          Id="Package\OrigemDestinoADO-NET.Paths[ADO NET Source Output]"
+          TopLeft="249.354164212632,54.3666664574544">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,128.283330276509"
+              Start="0,0"
+              End="0,120.783330276509">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,120.783330276509" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\OrigemDestinoADO-NET\ADO NET Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\OrigemDestinoADO-NET\ADO NET Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

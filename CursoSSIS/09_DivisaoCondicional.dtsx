@@ -1,0 +1,707 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/25/2021 2:55:16 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-3QC1KE7P"
+  DTS:CreatorName="LAPTOP-3QC1KE7P\Rick"
+  DTS:DTSID="{A2DF05EC-3593-4082-A037-6DD92E800634}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.167"
+  DTS:LocaleID="1046"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{1928B2C9-54D1-4F5F-AA02-17FEB1DC8913}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Produtividade]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{4680F9FD-2949-4C38-A1BA-4A2E3F4BFA1B}"
+      DTS:ObjectName="Produtividade">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1046"
+          DTS:HeaderRowDelimiter="_x003B_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\SSIS_ETL\Origem\arquivos_csv\Produtividade.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="id "
+              DTS:DTSID="{57C69E01-C0D0-44CB-B8C5-2D5C97013863}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nome"
+              DTS:DTSID="{D15BB82E-6E0D-4162-A178-9AFBEF5203D2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cargo "
+              DTS:DTSID="{63C37B39-F4B8-4620-A5F2-F97A2F1DDAEB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="idade"
+              DTS:DTSID="{D101B389-5C3E-410D-9986-E8BA9DA34AC7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sexo"
+              DTS:DTSID="{5BED7402-3C12-4211-8BFA-A087B269CAB8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="realizado"
+              DTS:DTSID="{BD6286B2-B1AD-4D2B-90A2-FC911388FA3C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="meta"
+              DTS:DTSID="{2B8B3747-DF09-4204-B4AF-0C248F31DB2D}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DivisaoCondicional"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarefa Fluxo de Dados"
+      DTS:DTSID="{73A5066A-D178-452D-ADF0-A2F6C7EAFF9D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DivisaoCondicional"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DivisaoCondicional\Divisão Condicional"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Divisão Condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;0"
+              description="Encaminha colunas de dados para saídas diferentes, dependendo do conteúdo dos dados. Use condições (expressões do SSIS) para especificar quais linhas são encaminhadas. Por exemplo, separe os registros que precisam ser limpos daqueles que estão prontos para serem carregados ou encaminhe somente um subconjunto de registros."
+              name="Divisão Condicional"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DivisaoCondicional\Divisão Condicional.Inputs[Entrada de Divisão Condicional]"
+                  description="Entrada para a Transformação Divisão Condicional"
+                  name="Entrada de Divisão Condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DivisaoCondicional\Divisão Condicional.Inputs[Entrada de Divisão Condicional].Columns[sexo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="sexo"
+                      lineageId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[sexo]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DivisaoCondicional\Divisão Condicional.Outputs[Masculino]"
+                  description="Saída 1 da Transformação Divisão Condicional"
+                  errorOrTruncationOperation="Computação"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Masculino"
+                  synchronousInputId="Package\DivisaoCondicional\Divisão Condicional.Inputs[Entrada de Divisão Condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica a expressão. Essa versão da expressão usa identificadores de linhagem, em vez de nomes de colunas."
+                      name="Expression">#{Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[sexo]} == "M"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica a versão amigável da expressão. Essa versão de expressão usa nomes de colunas."
+                      expressionType="Notify"
+                      name="FriendlyExpression">sexo == "M"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica a posição da condição na lista de condições que a transformação avalia. A ordem de avaliação é do menor para o maior valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DivisaoCondicional\Divisão Condicional.Outputs[Feminino]"
+                  description="Saída 2 da Transformação Divisão Condicional"
+                  errorOrTruncationOperation="Computação"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Feminino"
+                  synchronousInputId="Package\DivisaoCondicional\Divisão Condicional.Inputs[Entrada de Divisão Condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica a expressão. Essa versão da expressão usa identificadores de linhagem, em vez de nomes de colunas."
+                      name="Expression">#{Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[sexo]} == "F"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica a versão amigável da expressão. Essa versão de expressão usa nomes de colunas."
+                      expressionType="Notify"
+                      name="FriendlyExpression">sexo == "F"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica a posição da condição na lista de condições que a transformação avalia. A ordem de avaliação é do menor para o maior valor."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DivisaoCondicional\Divisão Condicional.Outputs[Demais]"
+                  description="Saída Padrão da Transformação Divisão Condicional"
+                  exclusionGroup="1"
+                  name="Demais"
+                  synchronousInputId="Package\DivisaoCondicional\Divisão Condicional.Inputs[Entrada de Divisão Condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DivisaoCondicional\Divisão Condicional.Outputs[Saída de Erro de Divisão Condicional]"
+                  description="Saída de Erro da Transformação Divisão Condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Divisão Condicional"
+                  synchronousInputId="Package\DivisaoCondicional\Divisão Condicional.Inputs[Entrada de Divisão Condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DivisaoCondicional\Divisão Condicional.Outputs[Saída de Erro de Divisão Condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DivisaoCondicional\Divisão Condicional.Outputs[Saída de Erro de Divisão Condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DivisaoCondicional\Divisão Condicional.Outputs[Saída de Erro de Divisão Condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DivisaoCondicional\Divisão Condicional.Outputs[Saída de Erro de Divisão Condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DivisaoCondicional\Feminino"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;0"
+              description="Distribui cada linha de entrada em cada linha em uma ou mais saídas. Por exemplo, ramifique seu fluxo de dados para criar uma cópia de dados de forma que alguns valores possam ser mascarados antes do compartilhamento com parceiros externos."
+              name="Feminino">
+              <inputs>
+                <input
+                  refId="Package\DivisaoCondicional\Feminino.Inputs[Multicast Entrada 1]"
+                  name="Multicast Entrada 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DivisaoCondicional\Feminino.Outputs[Multicast Saída 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Saída 1"
+                  synchronousInputId="Package\DivisaoCondicional\Feminino.Inputs[Multicast Entrada 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DivisaoCondicional\Masculino"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;0"
+              description="Distribui cada linha de entrada em cada linha em uma ou mais saídas. Por exemplo, ramifique seu fluxo de dados para criar uma cópia de dados de forma que alguns valores possam ser mascarados antes do compartilhamento com parceiros externos."
+              name="Masculino">
+              <inputs>
+                <input
+                  refId="Package\DivisaoCondicional\Masculino.Inputs[Multicast Entrada 1]"
+                  name="Multicast Entrada 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DivisaoCondicional\Masculino.Outputs[Multicast Saída 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Saída 1"
+                  synchronousInputId="Package\DivisaoCondicional\Masculino.Inputs[Multicast Entrada 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DivisaoCondicional\Origem de Arquivo Simples"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Origem de Arquivo Simples;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;1"
+              description="Origem de Arquivo Simples"
+              localeId="1046"
+              name="Origem de Arquivo Simples"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica se colunas de comprimento zero são tratadas como nulas."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome de uma coluna de saída que contém o nome do arquivo. Se nenhum nome for especificado, nenhuma coluna de saída contendo o nome de arquivo será gerada."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DivisaoCondicional\Origem de Arquivo Simples.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Produtividade]"
+                  connectionManagerRefId="Package.ConnectionManagers[Produtividade]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples]"
+                  name="Saída de Origem de Arquivo Simples">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[id ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[id ]"
+                      length="50"
+                      lineageId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[id ]"
+                      name="id "
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se os dados estão em formato binário."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[nome]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[nome]"
+                      length="50"
+                      lineageId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[nome]"
+                      name="nome"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se os dados estão em formato binário."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[cargo ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[cargo ]"
+                      length="50"
+                      lineageId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[cargo ]"
+                      name="cargo "
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se os dados estão em formato binário."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[idade]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[idade]"
+                      length="50"
+                      lineageId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[idade]"
+                      name="idade"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se os dados estão em formato binário."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[sexo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[sexo]"
+                      length="50"
+                      lineageId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[sexo]"
+                      name="sexo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se os dados estão em formato binário."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[realizado]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[realizado]"
+                      length="50"
+                      lineageId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[realizado]"
+                      name="realizado"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se os dados estão em formato binário."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[meta]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[meta]"
+                      length="50"
+                      lineageId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[meta]"
+                      name="meta"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se os dados estão em formato binário."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[id ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="id " />
+                    <externalMetadataColumn
+                      refId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[nome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="nome" />
+                    <externalMetadataColumn
+                      refId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[cargo ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cargo " />
+                    <externalMetadataColumn
+                      refId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[idade]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="idade" />
+                    <externalMetadataColumn
+                      refId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[sexo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="sexo" />
+                    <externalMetadataColumn
+                      refId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[realizado]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="realizado" />
+                    <externalMetadataColumn
+                      refId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[meta]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="meta" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples]"
+                  isErrorOut="true"
+                  name="Saída de Erro de Origem de Arquivo Simples">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[Coluna de Saída de Erro de Origem de Arquivo Simples]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Coluna de Saída de Erro de Origem de Arquivo Simples"
+                      lineageId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[Coluna de Saída de Erro de Origem de Arquivo Simples]"
+                      name="Coluna de Saída de Erro de Origem de Arquivo Simples" />
+                    <outputColumn
+                      refId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DivisaoCondicional.Paths[Feminino]"
+              endId="Package\DivisaoCondicional\Feminino.Inputs[Multicast Entrada 1]"
+              name="Feminino"
+              startId="Package\DivisaoCondicional\Divisão Condicional.Outputs[Feminino]" />
+            <path
+              refId="Package\DivisaoCondicional.Paths[Masculino]"
+              endId="Package\DivisaoCondicional\Masculino.Inputs[Multicast Entrada 1]"
+              name="Masculino"
+              startId="Package\DivisaoCondicional\Divisão Condicional.Outputs[Masculino]" />
+            <path
+              refId="Package\DivisaoCondicional.Paths[Saída de Origem de Arquivo Simples]"
+              endId="Package\DivisaoCondicional\Divisão Condicional.Inputs[Entrada de Divisão Condicional]"
+              name="Saída de Origem de Arquivo Simples"
+              startId="Package\DivisaoCondicional\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="166.666666666667,42.6666666666667"
+          Id="Package\DivisaoCondicional"
+          TopLeft="99.9999985098839,79.9499985703826" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DivisaoCondicional">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="206.666666666667,42.6666666666667"
+          Id="Package\DivisaoCondicional\Origem de Arquivo Simples"
+          TopLeft="144.374997848645,73.4499986866117" />
+        <NodeLayout
+          Size="170.666666666667,42.6666666666667"
+          Id="Package\DivisaoCondicional\Divisão Condicional"
+          TopLeft="169.999997466803,189.799996606112" />
+        <EdgeLayout
+          Id="Package\DivisaoCondicional.Paths[Saída de Origem de Arquivo Simples]"
+          TopLeft="251.520830991057,116.116665353278">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73.6833312528332"
+              Start="0,0"
+              End="0,66.1833312528332">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.1833312528332" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="125.333333333334,42.6666666666667"
+          Id="Package\DivisaoCondicional\Masculino"
+          TopLeft="61.8749990779907,295.099994723201" />
+        <NodeLayout
+          Size="122.666666666667,42.6666666666667"
+          Id="Package\DivisaoCondicional\Feminino"
+          TopLeft="291.249995660037,291.266661971013" />
+        <EdgeLayout
+          Id="Package\DivisaoCondicional.Paths[Masculino]"
+          TopLeft="228.222219689025,232.466663272778">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-103.680553944368,62.6333314504227"
+              Start="0,0"
+              End="-103.680553944368,55.1333314504227">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.4023728173541" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.4023728173541"
+                    Point2="0,25.4023728173541"
+                    Point3="-4,25.4023728173541" />
+                  <mssgle:LineSegment
+                    End="-99.6805539443675,25.4023728173541" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-99.6805539443675,25.4023728173541"
+                    Point2="-103.680553944368,25.4023728173541"
+                    Point3="-103.680553944368,29.4023728173541" />
+                  <mssgle:LineSegment
+                    End="-103.680553944368,55.1333314504227" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-82.8009605659338,30.4023728173541,61.9213671875,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DivisaoCondicional.Paths[Feminino]"
+          TopLeft="282.444441911247,232.466663272778">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="70.1388870821231,58.7999986982347"
+              Start="0,0"
+              End="70.1388870821231,51.2999986982347">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.8476774906153" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.8476774906153"
+                    Point2="0,23.8476774906153"
+                    Point3="4,23.8476774906153" />
+                  <mssgle:LineSegment
+                    End="66.1388870821231,23.8476774906153" />
+                  <mssgle:CubicBezierSegment
+                    Point1="66.1388870821231,23.8476774906153"
+                    Point2="70.1388870821231,23.8476774906153"
+                    Point3="70.1388870821231,27.8476774906153" />
+                  <mssgle:LineSegment
+                    End="70.1388870821231,51.2999986982347" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="5.68875994731156,28.8476774906153,58.7613671875,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
