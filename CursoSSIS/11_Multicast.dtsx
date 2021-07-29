@@ -1,0 +1,1325 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/28/2021 12:15:55 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-3QC1KE7P"
+  DTS:CreatorName="LAPTOP-3QC1KE7P\Rick"
+  DTS:DTSID="{92A55FD5-0C62-4921-BA5B-3CEF266409D7}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.167"
+  DTS:LocaleID="1046"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{DB3975B0-B9BD-464C-B455-435A54124E2E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{21316EF9-F8AC-48D8-B318-197A8D6B83FD}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\SSIS_ETL\Destino\arquivos_excel\Multcast_Out.xls;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Multicast]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{94060589-EC44-49F4-873E-41A616CB1122}"
+      DTS:ObjectName="Multicast">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1046"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\SSIS_ETL\Destino\arquivos_txt\Multicast_Out.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IdVenda"
+              DTS:DTSID="{FA4E3A33-DE58-4C95-9304-CF17D38E57BA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Loja"
+              DTS:DTSID="{0B4D7014-24D2-444B-ABF5-EEE5B5F37386}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Produto"
+              DTS:DTSID="{748C0E6C-CB94-4AB5-89D4-D39AE2CF2FDE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Valor"
+              DTS:DTSID="{88D11179-28B7-4FBF-9F9B-5180524836E8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Data"
+              DTS:DTSID="{814FF1A3-A57E-4FD6-9BFD-2411F39259B6}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Vendas02]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{48FA55AA-3504-43E8-ACB2-0D2F48A72433}"
+      DTS:ObjectName="Vendas02">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1046"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\SSIS_ETL\Origem\arquivos_txt\Vendas02.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IdVenda"
+              DTS:DTSID="{24D33104-98B7-4C68-8334-A5BF1B87960D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Loja"
+              DTS:DTSID="{D862DB80-B2E3-4A4A-9CE5-14D6BE350D8A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Produto"
+              DTS:DTSID="{C0BD65CE-1CA1-4237-BF80-070198A7F195}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Valor"
+              DTS:DTSID="{0FDB9F24-0A28-4EA0-9D7A-F1D002A83396}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Data"
+              DTS:DTSID="{B6E9FBE1-C33C-4654-8854-8402EFB9B82F}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\MulticastLesson"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarefa Fluxo de Dados"
+      DTS:DTSID="{8F491B2A-E5BE-4989-8AC6-ED0032FFD96F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="MulticastLesson"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\MulticastLesson\Conversão de Dados"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversão de Dados;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversão de Dados"
+              name="Conversão de Dados"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\MulticastLesson\Conversão de Dados.Inputs[Entrada de Conversão de Dados]"
+                  name="Entrada de Conversão de Dados">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\MulticastLesson\Conversão de Dados.Inputs[Entrada de Conversão de Dados].Columns[IdVenda]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="IdVenda"
+                      lineageId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[IdVenda]" />
+                    <inputColumn
+                      refId="Package\MulticastLesson\Conversão de Dados.Inputs[Entrada de Conversão de Dados].Columns[Loja]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Loja"
+                      lineageId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Loja]" />
+                    <inputColumn
+                      refId="Package\MulticastLesson\Conversão de Dados.Inputs[Entrada de Conversão de Dados].Columns[Produto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Produto"
+                      lineageId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Produto]" />
+                    <inputColumn
+                      refId="Package\MulticastLesson\Conversão de Dados.Inputs[Entrada de Conversão de Dados].Columns[Valor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Valor"
+                      lineageId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Valor]" />
+                    <inputColumn
+                      refId="Package\MulticastLesson\Conversão de Dados.Inputs[Entrada de Conversão de Dados].Columns[Data]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Data"
+                      lineageId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Data]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\MulticastLesson\Conversão de Dados.Outputs[Saída de Conversão de Dados]"
+                  exclusionGroup="1"
+                  name="Saída de Conversão de Dados"
+                  synchronousInputId="Package\MulticastLesson\Conversão de Dados.Inputs[Entrada de Conversão de Dados]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MulticastLesson\Conversão de Dados.Outputs[Saída de Conversão de Dados].Columns[Copy of IdVenda]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\MulticastLesson\Conversão de Dados.Outputs[Saída de Conversão de Dados].Columns[Copy of IdVenda]"
+                      name="Copy of IdVenda"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica a coluna de entrada usada como a origem dois dados para a conversão."
+                          name="SourceInputColumnLineageID">#{Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[IdVenda]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MulticastLesson\Conversão de Dados.Outputs[Saída de Conversão de Dados].Columns[Copy of Loja]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\MulticastLesson\Conversão de Dados.Outputs[Saída de Conversão de Dados].Columns[Copy of Loja]"
+                      name="Copy of Loja"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica a coluna de entrada usada como a origem dois dados para a conversão."
+                          name="SourceInputColumnLineageID">#{Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Loja]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MulticastLesson\Conversão de Dados.Outputs[Saída de Conversão de Dados].Columns[Copy of Produto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\MulticastLesson\Conversão de Dados.Outputs[Saída de Conversão de Dados].Columns[Copy of Produto]"
+                      name="Copy of Produto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica a coluna de entrada usada como a origem dois dados para a conversão."
+                          name="SourceInputColumnLineageID">#{Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Produto]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MulticastLesson\Conversão de Dados.Outputs[Saída de Conversão de Dados].Columns[Copy of Valor]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\MulticastLesson\Conversão de Dados.Outputs[Saída de Conversão de Dados].Columns[Copy of Valor]"
+                      name="Copy of Valor"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica a coluna de entrada usada como a origem dois dados para a conversão."
+                          name="SourceInputColumnLineageID">#{Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Valor]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MulticastLesson\Conversão de Dados.Outputs[Saída de Conversão de Dados].Columns[Copy of Data]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\MulticastLesson\Conversão de Dados.Outputs[Saída de Conversão de Dados].Columns[Copy of Data]"
+                      name="Copy of Data"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica a coluna de entrada usada como a origem dois dados para a conversão."
+                          name="SourceInputColumnLineageID">#{Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Data]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\MulticastLesson\Conversão de Dados.Outputs[Saída de Erro de Conversão de Dados]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Conversão de Dados"
+                  synchronousInputId="Package\MulticastLesson\Conversão de Dados.Inputs[Entrada de Conversão de Dados]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MulticastLesson\Conversão de Dados.Outputs[Saída de Erro de Conversão de Dados].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\MulticastLesson\Conversão de Dados.Outputs[Saída de Erro de Conversão de Dados].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\MulticastLesson\Conversão de Dados.Outputs[Saída de Erro de Conversão de Dados].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\MulticastLesson\Conversão de Dados.Outputs[Saída de Erro de Conversão de Dados].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\MulticastLesson\Destino de Arquivo Simples"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Destino de Arquivo Simples;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;1"
+              description="Destino de Arquivo Simples"
+              localeId="1046"
+              name="Destino de Arquivo Simples"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica se os dados substituirão o arquivo de destino ou serão anexados a ele."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Especifica o texto a ser gravado no arquivo de destino antes da gravação de quaisquer dados."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="Quando o qualificador de texto está habilitado, ele especifica se o qualificador de texto nos dados gravados no arquivo de destino serão de saída ou não."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\MulticastLesson\Destino de Arquivo Simples.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Multicast]"
+                  connectionManagerRefId="Package.ConnectionManagers[Multicast]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\MulticastLesson\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples]"
+                  hasSideEffects="true"
+                  name="Entrada de Destino de Arquivo Simples">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\MulticastLesson\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].Columns[IdVenda]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="IdVenda"
+                      externalMetadataColumnId="Package\MulticastLesson\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[IdVenda]"
+                      lineageId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[IdVenda]" />
+                    <inputColumn
+                      refId="Package\MulticastLesson\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].Columns[Loja]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Loja"
+                      externalMetadataColumnId="Package\MulticastLesson\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[Loja]"
+                      lineageId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Loja]" />
+                    <inputColumn
+                      refId="Package\MulticastLesson\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].Columns[Produto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Produto"
+                      externalMetadataColumnId="Package\MulticastLesson\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[Produto]"
+                      lineageId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Produto]" />
+                    <inputColumn
+                      refId="Package\MulticastLesson\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].Columns[Valor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Valor"
+                      externalMetadataColumnId="Package\MulticastLesson\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[Valor]"
+                      lineageId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Valor]" />
+                    <inputColumn
+                      refId="Package\MulticastLesson\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].Columns[Data]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Data"
+                      externalMetadataColumnId="Package\MulticastLesson\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[Data]"
+                      lineageId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Data]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\MulticastLesson\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[IdVenda]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="IdVenda" />
+                    <externalMetadataColumn
+                      refId="Package\MulticastLesson\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[Loja]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Loja" />
+                    <externalMetadataColumn
+                      refId="Package\MulticastLesson\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[Produto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Produto" />
+                    <externalMetadataColumn
+                      refId="Package\MulticastLesson\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[Valor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Valor" />
+                    <externalMetadataColumn
+                      refId="Package\MulticastLesson\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[Data]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Data" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\MulticastLesson\Destino do Excel"
+              componentClassID="Microsoft.ExcelDestination"
+              contactInfo="Destino do Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;0"
+              description="Destino do Excel"
+              name="Destino do Excel"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset">Multcast</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se os valores fornecidos para colunas de identidade serão copiados no destino. Se false, os valores para colunas de identidade serão gerados automaticamente no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se as colunas que contêm null terão null inserido no destino. Se false, as colunas que contêm null terão seus valores padrão inseridos no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica as opções a serem usadas com o carregamento rápido. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica quando confirmações são emitidas durante a inserção de dados. Um valor de 0 especifica que uma confirmação será emitida ao final da inserção de dados. Aplicável somente se o carregamento rápido estiver ativado."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\MulticastLesson\Destino do Excel.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\MulticastLesson\Destino do Excel.Inputs[Entrada de Destino do Excel]"
+                  errorOrTruncationOperation="Inserir"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de Destino do Excel">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\MulticastLesson\Destino do Excel.Inputs[Entrada de Destino do Excel].Columns[Copy of IdVenda]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of IdVenda"
+                      externalMetadataColumnId="Package\MulticastLesson\Destino do Excel.Inputs[Entrada de Destino do Excel].ExternalColumns[IdVenda]"
+                      lineageId="Package\MulticastLesson\Conversão de Dados.Outputs[Saída de Conversão de Dados].Columns[Copy of IdVenda]" />
+                    <inputColumn
+                      refId="Package\MulticastLesson\Destino do Excel.Inputs[Entrada de Destino do Excel].Columns[Copy of Loja]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Loja"
+                      externalMetadataColumnId="Package\MulticastLesson\Destino do Excel.Inputs[Entrada de Destino do Excel].ExternalColumns[Loja]"
+                      lineageId="Package\MulticastLesson\Conversão de Dados.Outputs[Saída de Conversão de Dados].Columns[Copy of Loja]" />
+                    <inputColumn
+                      refId="Package\MulticastLesson\Destino do Excel.Inputs[Entrada de Destino do Excel].Columns[Copy of Produto]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Produto"
+                      externalMetadataColumnId="Package\MulticastLesson\Destino do Excel.Inputs[Entrada de Destino do Excel].ExternalColumns[Produto]"
+                      lineageId="Package\MulticastLesson\Conversão de Dados.Outputs[Saída de Conversão de Dados].Columns[Copy of Produto]" />
+                    <inputColumn
+                      refId="Package\MulticastLesson\Destino do Excel.Inputs[Entrada de Destino do Excel].Columns[Copy of Valor]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Valor"
+                      externalMetadataColumnId="Package\MulticastLesson\Destino do Excel.Inputs[Entrada de Destino do Excel].ExternalColumns[Valor]"
+                      lineageId="Package\MulticastLesson\Conversão de Dados.Outputs[Saída de Conversão de Dados].Columns[Copy of Valor]" />
+                    <inputColumn
+                      refId="Package\MulticastLesson\Destino do Excel.Inputs[Entrada de Destino do Excel].Columns[Copy of Data]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Data"
+                      externalMetadataColumnId="Package\MulticastLesson\Destino do Excel.Inputs[Entrada de Destino do Excel].ExternalColumns[Data]"
+                      lineageId="Package\MulticastLesson\Conversão de Dados.Outputs[Saída de Conversão de Dados].Columns[Copy of Data]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\MulticastLesson\Destino do Excel.Inputs[Entrada de Destino do Excel].ExternalColumns[IdVenda]"
+                      dataType="wstr"
+                      length="255"
+                      name="IdVenda" />
+                    <externalMetadataColumn
+                      refId="Package\MulticastLesson\Destino do Excel.Inputs[Entrada de Destino do Excel].ExternalColumns[Loja]"
+                      dataType="wstr"
+                      length="255"
+                      name="Loja" />
+                    <externalMetadataColumn
+                      refId="Package\MulticastLesson\Destino do Excel.Inputs[Entrada de Destino do Excel].ExternalColumns[Produto]"
+                      dataType="wstr"
+                      length="255"
+                      name="Produto" />
+                    <externalMetadataColumn
+                      refId="Package\MulticastLesson\Destino do Excel.Inputs[Entrada de Destino do Excel].ExternalColumns[Valor]"
+                      dataType="wstr"
+                      length="255"
+                      name="Valor" />
+                    <externalMetadataColumn
+                      refId="Package\MulticastLesson\Destino do Excel.Inputs[Entrada de Destino do Excel].ExternalColumns[Data]"
+                      dataType="wstr"
+                      length="255"
+                      name="Data" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\MulticastLesson\Destino do Excel.Outputs[Saída de Erro de Destino do Excel]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Destino do Excel"
+                  synchronousInputId="Package\MulticastLesson\Destino do Excel.Inputs[Entrada de Destino do Excel]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MulticastLesson\Destino do Excel.Outputs[Saída de Erro de Destino do Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\MulticastLesson\Destino do Excel.Outputs[Saída de Erro de Destino do Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\MulticastLesson\Destino do Excel.Outputs[Saída de Erro de Destino do Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\MulticastLesson\Destino do Excel.Outputs[Saída de Erro de Destino do Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\MulticastLesson\Destino OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino OLE DB"
+              name="Destino OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset">[MULTCAST]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forca o uso do valor da propriedade DefaultCodePage durante a descrição dos dados de caractere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se os valores fornecidos para colunas de identidade serão copiados no destino. Se false, os valores para colunas de identidade serão gerados automaticamente no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se as colunas que contêm null terão null inserido no destino. Se false, as colunas que contêm null terão seus valores padrão inseridos no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica as opções a serem usadas com o carregamento rápido. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica quando confirmações são emitidas durante a inserção de dados. Um valor de 0 especifica que uma confirmação será emitida ao final da inserção de dados. Aplicável somente se o carregamento rápido estiver ativado."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\MulticastLesson\Destino OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{CDD8C1DA-B6CE-4EF8-AE13-503F38D3A829}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Estudos]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\MulticastLesson\Destino OLE DB.Inputs[Entrada de Destino OLE DB]"
+                  errorOrTruncationOperation="Inserir"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de Destino OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\MulticastLesson\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[IdVenda]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="IdVenda"
+                      externalMetadataColumnId="Package\MulticastLesson\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[IdVenda]"
+                      lineageId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[IdVenda]" />
+                    <inputColumn
+                      refId="Package\MulticastLesson\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[Loja]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Loja"
+                      externalMetadataColumnId="Package\MulticastLesson\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[Loja]"
+                      lineageId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Loja]" />
+                    <inputColumn
+                      refId="Package\MulticastLesson\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[Produto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Produto"
+                      externalMetadataColumnId="Package\MulticastLesson\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[Produto]"
+                      lineageId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Produto]" />
+                    <inputColumn
+                      refId="Package\MulticastLesson\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[Valor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Valor"
+                      externalMetadataColumnId="Package\MulticastLesson\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[Valor]"
+                      lineageId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Valor]" />
+                    <inputColumn
+                      refId="Package\MulticastLesson\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[Data]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Data"
+                      externalMetadataColumnId="Package\MulticastLesson\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[Data]"
+                      lineageId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Data]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\MulticastLesson\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[IdVenda]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="IdVenda" />
+                    <externalMetadataColumn
+                      refId="Package\MulticastLesson\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[Loja]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Loja" />
+                    <externalMetadataColumn
+                      refId="Package\MulticastLesson\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[Produto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Produto" />
+                    <externalMetadataColumn
+                      refId="Package\MulticastLesson\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[Valor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Valor" />
+                    <externalMetadataColumn
+                      refId="Package\MulticastLesson\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[Data]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Data" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\MulticastLesson\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Destino OLE DB"
+                  synchronousInputId="Package\MulticastLesson\Destino OLE DB.Inputs[Entrada de Destino OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MulticastLesson\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\MulticastLesson\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\MulticastLesson\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\MulticastLesson\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\MulticastLesson\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;0"
+              description="Distribui cada linha de entrada em cada linha em uma ou mais saídas. Por exemplo, ramifique seu fluxo de dados para criar uma cópia de dados de forma que alguns valores possam ser mascarados antes do compartilhamento com parceiros externos."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\MulticastLesson\Multicast.Inputs[Multicast Entrada 1]"
+                  name="Multicast Entrada 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\MulticastLesson\Multicast.Outputs[1 de Saída Multicast]"
+                  deleteOutputOnPathDetached="true"
+                  name="1 de Saída Multicast"
+                  synchronousInputId="Package\MulticastLesson\Multicast.Inputs[Multicast Entrada 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\MulticastLesson\Multicast.Outputs[3 de Saída Multicast]"
+                  deleteOutputOnPathDetached="true"
+                  name="3 de Saída Multicast"
+                  synchronousInputId="Package\MulticastLesson\Multicast.Inputs[Multicast Entrada 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\MulticastLesson\Multicast.Outputs[2 de Saída Multicast]"
+                  deleteOutputOnPathDetached="true"
+                  name="2 de Saída Multicast"
+                  synchronousInputId="Package\MulticastLesson\Multicast.Inputs[Multicast Entrada 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\MulticastLesson\Multicast.Outputs[4 de Saída Multicast]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="4 de Saída Multicast"
+                  synchronousInputId="Package\MulticastLesson\Multicast.Inputs[Multicast Entrada 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\MulticastLesson\Origem de Arquivo Simples"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Origem de Arquivo Simples;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;1"
+              description="Origem de Arquivo Simples"
+              localeId="1046"
+              name="Origem de Arquivo Simples"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica se colunas de comprimento zero são tratadas como nulas."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome de uma coluna de saída que contém o nome do arquivo. Se nenhum nome for especificado, nenhuma coluna de saída contendo o nome de arquivo será gerada."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\MulticastLesson\Origem de Arquivo Simples.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Vendas02]"
+                  connectionManagerRefId="Package.ConnectionManagers[Vendas02]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples]"
+                  name="Saída de Origem de Arquivo Simples">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[IdVenda]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[IdVenda]"
+                      length="50"
+                      lineageId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[IdVenda]"
+                      name="IdVenda"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se os dados estão em formato binário."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Loja]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[Loja]"
+                      length="50"
+                      lineageId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Loja]"
+                      name="Loja"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se os dados estão em formato binário."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Produto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[Produto]"
+                      length="50"
+                      lineageId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Produto]"
+                      name="Produto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se os dados estão em formato binário."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Valor]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[Valor]"
+                      length="50"
+                      lineageId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Valor]"
+                      name="Valor"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se os dados estão em formato binário."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Data]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[Data]"
+                      length="50"
+                      lineageId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Data]"
+                      name="Data"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se os dados estão em formato binário."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[IdVenda]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="IdVenda" />
+                    <externalMetadataColumn
+                      refId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[Loja]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Loja" />
+                    <externalMetadataColumn
+                      refId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[Produto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Produto" />
+                    <externalMetadataColumn
+                      refId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[Valor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Valor" />
+                    <externalMetadataColumn
+                      refId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[Data]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Data" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples]"
+                  isErrorOut="true"
+                  name="Saída de Erro de Origem de Arquivo Simples">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[Coluna de Saída de Erro de Origem de Arquivo Simples]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Coluna de Saída de Erro de Origem de Arquivo Simples"
+                      lineageId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[Coluna de Saída de Erro de Origem de Arquivo Simples]"
+                      name="Coluna de Saída de Erro de Origem de Arquivo Simples" />
+                    <outputColumn
+                      refId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\MulticastLesson.Paths[1 de Saída Multicast]"
+              endId="Package\MulticastLesson\Destino OLE DB.Inputs[Entrada de Destino OLE DB]"
+              name="1 de Saída Multicast"
+              startId="Package\MulticastLesson\Multicast.Outputs[1 de Saída Multicast]" />
+            <path
+              refId="Package\MulticastLesson.Paths[2 de Saída Multicast]"
+              endId="Package\MulticastLesson\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples]"
+              name="2 de Saída Multicast"
+              startId="Package\MulticastLesson\Multicast.Outputs[2 de Saída Multicast]" />
+            <path
+              refId="Package\MulticastLesson.Paths[3 de Saída Multicast]"
+              endId="Package\MulticastLesson\Conversão de Dados.Inputs[Entrada de Conversão de Dados]"
+              name="3 de Saída Multicast"
+              startId="Package\MulticastLesson\Multicast.Outputs[3 de Saída Multicast]" />
+            <path
+              refId="Package\MulticastLesson.Paths[Saída de Conversão de Dados]"
+              endId="Package\MulticastLesson\Destino do Excel.Inputs[Entrada de Destino do Excel]"
+              name="Saída de Conversão de Dados"
+              startId="Package\MulticastLesson\Conversão de Dados.Outputs[Saída de Conversão de Dados]" />
+            <path
+              refId="Package\MulticastLesson.Paths[Saída de Origem de Arquivo Simples]"
+              endId="Package\MulticastLesson\Multicast.Inputs[Multicast Entrada 1]"
+              name="Saída de Origem de Arquivo Simples"
+              startId="Package\MulticastLesson\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="153.333333333334,42.6666666666667"
+          Id="Package\MulticastLesson"
+          TopLeft="206.249996926636,131.299997652173" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\MulticastLesson">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="206.666666666667,42.6666666666667"
+          Id="Package\MulticastLesson\Origem de Arquivo Simples"
+          TopLeft="189.374997178093,1.26666662017508" />
+        <NodeLayout
+          Size="121.333333333334,42.6666666666667"
+          Id="Package\MulticastLesson\Multicast"
+          TopLeft="268.124996004626,96.3666650627056" />
+        <NodeLayout
+          Size="157.333333333334,42.6666666666667"
+          Id="Package\MulticastLesson\Destino do Excel"
+          TopLeft="53.7499991990626,184.116663493613" />
+        <NodeLayout
+          Size="208,42.6666666666667"
+          Id="Package\MulticastLesson\Destino de Arquivo Simples"
+          TopLeft="321.249995213002,273.816661889652" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\MulticastLesson\Destino OLE DB"
+          TopLeft="203.124996973202,339.466660715739" />
+        <EdgeLayout
+          Id="Package\MulticastLesson.Paths[1 de Saída Multicast]"
+          TopLeft="347.680551560182,139.033331729372">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-67.2222212536467,200.433328986367"
+              Start="0,0"
+              End="-67.2222212536467,192.933328986367">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,77.7385376343535" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,77.7385376343535"
+                    Point2="0,81.7385376343535"
+                    Point3="-4,81.7385376343535" />
+                  <mssgle:LineSegment
+                    End="-63.2222212536467,81.7385376343535" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-63.2222212536467,81.7385376343535"
+                    Point2="-67.2222212536467,81.7385376343535"
+                    Point3="-67.2222212536467,85.7385376343535" />
+                  <mssgle:LineSegment
+                    End="-67.2222212536467,192.933328986367" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\MulticastLesson.Paths[Saída de Origem de Arquivo Simples]"
+          TopLeft="292.708330511426,43.9333332868417">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36.0833321598669,52.4333317758638"
+              Start="0,0"
+              End="36.0833321598669,44.9333317758638">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.2166658879319" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.2166658879319"
+                    Point2="0,26.2166658879319"
+                    Point3="4,26.2166658879319" />
+                  <mssgle:LineSegment
+                    End="32.0833321598669,26.2166658879319" />
+                  <mssgle:CubicBezierSegment
+                    Point1="32.0833321598669,26.2166658879319"
+                    Point2="36.0833321598669,26.2166658879319"
+                    Point3="36.0833321598669,30.2166658879319" />
+                  <mssgle:LineSegment
+                    End="36.0833321598669,44.9333317758638" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="176,42.6666666666667"
+          Id="Package\MulticastLesson\Conversão de Dados"
+          TopLeft="3.04166675048567,97.2666652254264" />
+        <EdgeLayout
+          Id="Package\MulticastLesson.Paths[3 de Saída Multicast]"
+          TopLeft="268.124996004626,118.149998477399">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-89.0833292541405,0"
+              Start="0,0"
+              End="-81.5833292541405,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-81.5833292541405,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\MulticastLesson.Paths[2 de Saída Multicast]"
+          TopLeft="357.124996004626,139.033331729372">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="68.1249992083758,134.78333016028"
+              Start="0,0"
+              End="68.1249992083758,127.28333016028">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.8601542134307" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.8601542134307"
+                    Point2="0,46.8601542134307"
+                    Point3="4,46.8601542134307" />
+                  <mssgle:LineSegment
+                    End="64.1249992083758,46.8601542134307" />
+                  <mssgle:CubicBezierSegment
+                    Point1="64.1249992083758,46.8601542134307"
+                    Point2="68.1249992083758,46.8601542134307"
+                    Point3="68.1249992083758,50.8601542134307" />
+                  <mssgle:LineSegment
+                    End="68.1249992083758,127.28333016028" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\MulticastLesson.Paths[Saída de Conversão de Dados]"
+          TopLeft="91.0416667504857,139.933331892093">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41.3749991152436,44.1833316015201"
+              Start="0,0"
+              End="41.3749991152436,36.6833316015201">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.0916658007601" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.0916658007601"
+                    Point2="0,22.0916658007601"
+                    Point3="4,22.0916658007601" />
+                  <mssgle:LineSegment
+                    End="37.3749991152436,22.0916658007601" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.3749991152436,22.0916658007601"
+                    Point2="41.3749991152436,22.0916658007601"
+                    Point3="41.3749991152436,26.0916658007601" />
+                  <mssgle:LineSegment
+                    End="41.3749991152436,36.6833316015201" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\MulticastLesson\Destino do Excel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\MulticastLesson\Destino OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

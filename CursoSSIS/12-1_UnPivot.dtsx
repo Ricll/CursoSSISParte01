@@ -1,0 +1,649 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/28/2021 11:39:07 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-3QC1KE7P"
+  DTS:CreatorName="LAPTOP-3QC1KE7P\Rick"
+  DTS:DTSID="{631AC59C-F21A-47B8-BAD8-B4121D9E42CE}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.167"
+  DTS:LocaleID="1046"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{267B2AB1-2246-4A13-8EC8-7B3DF105CC09}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Unpivot"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarefa Fluxo de Dados"
+      DTS:DTSID="{0A1A7BA1-9868-4BA6-BE4E-C50244496291}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Unpivot"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Unpivot\Destino OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino OLE DB"
+              name="Destino OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset">[UNPIVOT]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forca o uso do valor da propriedade DefaultCodePage durante a descrição dos dados de caractere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se os valores fornecidos para colunas de identidade serão copiados no destino. Se false, os valores para colunas de identidade serão gerados automaticamente no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se as colunas que contêm null terão null inserido no destino. Se false, as colunas que contêm null terão seus valores padrão inseridos no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica as opções a serem usadas com o carregamento rápido. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica quando confirmações são emitidas durante a inserção de dados. Um valor de 0 especifica que uma confirmação será emitida ao final da inserção de dados. Aplicável somente se o carregamento rápido estiver ativado."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Unpivot\Destino OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{CDD8C1DA-B6CE-4EF8-AE13-503F38D3A829}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Estudos]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Unpivot\Destino OLE DB.Inputs[Entrada de Destino OLE DB]"
+                  errorOrTruncationOperation="Inserir"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de Destino OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Unpivot\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[Produto]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Produto"
+                      externalMetadataColumnId="Package\Unpivot\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[Produto]"
+                      lineageId="Package\Unpivot\Dinâmico.Outputs[Saída Padrão Dinâmica].Columns[Produto]" />
+                    <inputColumn
+                      refId="Package\Unpivot\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[C_Jan_Valores]"
+                      cachedDataType="r8"
+                      cachedName="C_Jan_Valores"
+                      externalMetadataColumnId="Package\Unpivot\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[Jan]"
+                      lineageId="Package\Unpivot\Dinâmico.Outputs[Saída Padrão Dinâmica].Columns[C_Jan_Valores]" />
+                    <inputColumn
+                      refId="Package\Unpivot\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[C_Fev_Valores]"
+                      cachedDataType="r8"
+                      cachedName="C_Fev_Valores"
+                      externalMetadataColumnId="Package\Unpivot\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[Fev]"
+                      lineageId="Package\Unpivot\Dinâmico.Outputs[Saída Padrão Dinâmica].Columns[C_Fev_Valores]" />
+                    <inputColumn
+                      refId="Package\Unpivot\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[C_Mar_Valores]"
+                      cachedDataType="r8"
+                      cachedName="C_Mar_Valores"
+                      externalMetadataColumnId="Package\Unpivot\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[Mar]"
+                      lineageId="Package\Unpivot\Dinâmico.Outputs[Saída Padrão Dinâmica].Columns[C_Mar_Valores]" />
+                    <inputColumn
+                      refId="Package\Unpivot\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[C_Abri_Valores]"
+                      cachedDataType="r8"
+                      cachedName="C_Abri_Valores"
+                      externalMetadataColumnId="Package\Unpivot\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[Abri]"
+                      lineageId="Package\Unpivot\Dinâmico.Outputs[Saída Padrão Dinâmica].Columns[C_Abri_Valores]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Unpivot\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[Produto]"
+                      dataType="wstr"
+                      length="255"
+                      name="Produto" />
+                    <externalMetadataColumn
+                      refId="Package\Unpivot\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[Jan]"
+                      dataType="r8"
+                      name="Jan" />
+                    <externalMetadataColumn
+                      refId="Package\Unpivot\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[Fev]"
+                      dataType="r8"
+                      name="Fev" />
+                    <externalMetadataColumn
+                      refId="Package\Unpivot\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[Mar]"
+                      dataType="r8"
+                      name="Mar" />
+                    <externalMetadataColumn
+                      refId="Package\Unpivot\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[Abri]"
+                      dataType="r8"
+                      name="Abri" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Unpivot\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Destino OLE DB"
+                  synchronousInputId="Package\Unpivot\Destino OLE DB.Inputs[Entrada de Destino OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Unpivot\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Unpivot\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Unpivot\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Unpivot\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Unpivot\Dinâmico"
+              componentClassID="Microsoft.Pivot"
+              contactInfo="Dinâmico;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;1"
+              description="Compacta um fluxo de dados de entrada dinamizando-o em um valor de coluna, o que o torna menos normalizado. O valor de entrada deve ser classificado pela coluna dinâmica, pois ocorre uma dinamização sempre que os dados da coluna dinâmica são alterados. Observação: as linhas duplicadas causarão a falha dessa transformação."
+              name="Dinâmico"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Faz com que a Transformação Dinâmica ignore linhas contendo valores não reconhecidos na coluna Chave Dinâmica e relate a lista completa de valores não correspondentes ao final da execução de Fluxo de Dados. É útil para coletar uma lista de valores de linhas de entrada que possam ser usados para gerar colunas de saída automaticamente."
+                  name="PassThroughUnmatchedPivotKeys">true</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Unpivot\Dinâmico.Inputs[Entrada Padrão Dinâmica]"
+                  hasSideEffects="true"
+                  name="Entrada Padrão Dinâmica">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Unpivot\Dinâmico.Inputs[Entrada Padrão Dinâmica].Columns[Produto]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Produto"
+                      lineageId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Produto]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Descreve como a coluna de entrada participa da operação dinâmica. Pode ajudar a definir um conjunto de registros relacionados, pode conter a chave que identifica exclusivamente uma linha em um conjunto relacionado e no qual os valores são dinâmicos, pode conter um valor que é transferido para uma coluna dinâmica ou pode conter um valor que simplesmente passa direto, embora o item dinâmico permaneça inalterado."
+                          name="PivotUsage">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Unpivot\Dinâmico.Inputs[Entrada Padrão Dinâmica].Columns[Mes]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Mes"
+                      lineageId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Mes]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Descreve como a coluna de entrada participa da operação dinâmica. Pode ajudar a definir um conjunto de registros relacionados, pode conter a chave que identifica exclusivamente uma linha em um conjunto relacionado e no qual os valores são dinâmicos, pode conter um valor que é transferido para uma coluna dinâmica ou pode conter um valor que simplesmente passa direto, embora o item dinâmico permaneça inalterado."
+                          name="PivotUsage">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Unpivot\Dinâmico.Inputs[Entrada Padrão Dinâmica].Columns[Valores]"
+                      cachedDataType="r8"
+                      cachedName="Valores"
+                      lineageId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Valores]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Descreve como a coluna de entrada participa da operação dinâmica. Pode ajudar a definir um conjunto de registros relacionados, pode conter a chave que identifica exclusivamente uma linha em um conjunto relacionado e no qual os valores são dinâmicos, pode conter um valor que é transferido para uma coluna dinâmica ou pode conter um valor que simplesmente passa direto, embora o item dinâmico permaneça inalterado."
+                          name="PivotUsage">3</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Unpivot\Dinâmico.Outputs[Saída Padrão Dinâmica]"
+                  name="Saída Padrão Dinâmica">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Unpivot\Dinâmico.Outputs[Saída Padrão Dinâmica].Columns[Produto]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Unpivot\Dinâmico.Outputs[Saída Padrão Dinâmica].Columns[Produto]"
+                      name="Produto">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="O identificador de linhagem de uma coluna de entrada que contém um PivotedValue ou o valor -1. O valor -1 indica que a coluna não é usada em uma operação dinâmica"
+                          name="SourceColumn">#{Package\Unpivot\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Produto]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica um valor que corresponde a um dos valores possíveis da coluna de entrada marcada como a chave dinâmica da propriedade PivotUsage."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Unpivot\Dinâmico.Outputs[Saída Padrão Dinâmica].Columns[C_Abri_Valores]"
+                      dataType="r8"
+                      lineageId="Package\Unpivot\Dinâmico.Outputs[Saída Padrão Dinâmica].Columns[C_Abri_Valores]"
+                      name="C_Abri_Valores">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="O identificador de linhagem de uma coluna de entrada que contém um PivotedValue ou o valor -1. O valor -1 indica que a coluna não é usada em uma operação dinâmica"
+                          name="SourceColumn">#{Package\Unpivot\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Valores]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Especifica um valor que corresponde a um dos valores possíveis da coluna de entrada marcada como a chave dinâmica da propriedade PivotUsage."
+                          expressionType="Notify"
+                          name="PivotKeyValue">Abri</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Unpivot\Dinâmico.Outputs[Saída Padrão Dinâmica].Columns[C_Fev_Valores]"
+                      dataType="r8"
+                      lineageId="Package\Unpivot\Dinâmico.Outputs[Saída Padrão Dinâmica].Columns[C_Fev_Valores]"
+                      name="C_Fev_Valores">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="O identificador de linhagem de uma coluna de entrada que contém um PivotedValue ou o valor -1. O valor -1 indica que a coluna não é usada em uma operação dinâmica"
+                          name="SourceColumn">#{Package\Unpivot\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Valores]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Especifica um valor que corresponde a um dos valores possíveis da coluna de entrada marcada como a chave dinâmica da propriedade PivotUsage."
+                          expressionType="Notify"
+                          name="PivotKeyValue">Fev</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Unpivot\Dinâmico.Outputs[Saída Padrão Dinâmica].Columns[C_Jan_Valores]"
+                      dataType="r8"
+                      lineageId="Package\Unpivot\Dinâmico.Outputs[Saída Padrão Dinâmica].Columns[C_Jan_Valores]"
+                      name="C_Jan_Valores">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="O identificador de linhagem de uma coluna de entrada que contém um PivotedValue ou o valor -1. O valor -1 indica que a coluna não é usada em uma operação dinâmica"
+                          name="SourceColumn">#{Package\Unpivot\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Valores]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Especifica um valor que corresponde a um dos valores possíveis da coluna de entrada marcada como a chave dinâmica da propriedade PivotUsage."
+                          expressionType="Notify"
+                          name="PivotKeyValue">Jan</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Unpivot\Dinâmico.Outputs[Saída Padrão Dinâmica].Columns[C_Mar_Valores]"
+                      dataType="r8"
+                      lineageId="Package\Unpivot\Dinâmico.Outputs[Saída Padrão Dinâmica].Columns[C_Mar_Valores]"
+                      name="C_Mar_Valores">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="O identificador de linhagem de uma coluna de entrada que contém um PivotedValue ou o valor -1. O valor -1 indica que a coluna não é usada em uma operação dinâmica"
+                          name="SourceColumn">#{Package\Unpivot\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Valores]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Especifica um valor que corresponde a um dos valores possíveis da coluna de entrada marcada como a chave dinâmica da propriedade PivotUsage."
+                          expressionType="Notify"
+                          name="PivotKeyValue">Mar</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Unpivot\Dinâmico.Outputs[Saída de Erro Dinâmica]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro Dinâmica"
+                  synchronousInputId="Package\Unpivot\Dinâmico.Inputs[Entrada Padrão Dinâmica]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Unpivot\Dinâmico.Outputs[Saída de Erro Dinâmica].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Unpivot\Dinâmico.Outputs[Saída de Erro Dinâmica].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Unpivot\Dinâmico.Outputs[Saída de Erro Dinâmica].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Unpivot\Dinâmico.Outputs[Saída de Erro Dinâmica].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Unpivot\Origem OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origem OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;7"
+              description="Origem OLE DB"
+              name="Origem OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset">[dbo].[PIVOT]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="A variável que contém o comando SQL a ser executado."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forca o uso do valor da propriedade DefaultCodePage durante a descrição dos dados de caractere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Os mapeamentos entre os parâmetros no comando SQL e as variáveis."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Unpivot\Origem OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{CDD8C1DA-B6CE-4EF8-AE13-503F38D3A829}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Estudos]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Origem OLE DB]"
+                  name="Saída de Origem OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Produto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[Produto]"
+                      length="255"
+                      lineageId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Produto]"
+                      name="Produto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Mes]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[Mes]"
+                      length="255"
+                      lineageId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Mes]"
+                      name="Mes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Valores]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[Valores]"
+                      lineageId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Valores]"
+                      name="Valores"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[Produto]"
+                      dataType="wstr"
+                      length="255"
+                      name="Produto" />
+                    <externalMetadataColumn
+                      refId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[Mes]"
+                      dataType="wstr"
+                      length="255"
+                      name="Mes" />
+                    <externalMetadataColumn
+                      refId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[Valores]"
+                      dataType="r8"
+                      name="Valores" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB]"
+                  isErrorOut="true"
+                  name="Saída de Erro de Origem OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[Produto]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[Produto]"
+                      name="Produto" />
+                    <outputColumn
+                      refId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[Mes]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[Mes]"
+                      name="Mes" />
+                    <outputColumn
+                      refId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[Valores]"
+                      dataType="r8"
+                      lineageId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[Valores]"
+                      name="Valores" />
+                    <outputColumn
+                      refId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Unpivot.Paths[Saída de Origem OLE DB]"
+              endId="Package\Unpivot\Dinâmico.Inputs[Entrada Padrão Dinâmica]"
+              name="Saída de Origem OLE DB"
+              startId="Package\Unpivot\Origem OLE DB.Outputs[Saída de Origem OLE DB]" />
+            <path
+              refId="Package\Unpivot.Paths[Saída Padrão Dinâmica]"
+              endId="Package\Unpivot\Destino OLE DB.Inputs[Entrada de Destino OLE DB]"
+              name="Saída Padrão Dinâmica"
+              startId="Package\Unpivot\Dinâmico.Outputs[Saída Padrão Dinâmica]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="116,42.6666666666667"
+          Id="Package\Unpivot"
+          TopLeft="176.24999737367,137.149997547567" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Unpivot">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="153.333333333334,42.6666666666667"
+          Id="Package\Unpivot\Origem OLE DB"
+          TopLeft="176.874997364357,15.5999997210503" />
+        <NodeLayout
+          Size="122.666666666667,42.6666666666667"
+          Id="Package\Unpivot\Dinâmico"
+          TopLeft="187.499997206032,95.5499982914329" />
+        <EdgeLayout
+          Id="Package\Unpivot.Paths[Saída de Origem OLE DB]"
+          TopLeft="251.187497285195,58.2666663877169">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.2833319037159"
+              Start="0,0"
+              End="0,29.7833319037159">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.7833319037159" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Unpivot\Destino OLE DB"
+          TopLeft="171.874997438863,184.599996699095" />
+        <EdgeLayout
+          Id="Package\Unpivot.Paths[Saída Padrão Dinâmica]"
+          TopLeft="249.020830655781,138.2166649581">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.3833317409953"
+              Start="0,0"
+              End="0,38.8833317409953">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.8833317409953" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Unpivot\Origem OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Unpivot\Destino OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
